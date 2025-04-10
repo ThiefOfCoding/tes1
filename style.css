@@ -1,0 +1,230 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #0f0c29;
+  overflow-x: hidden;
+  position: relative;
+  color: #fff;
+  z-index: 1;
+}
+
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  top: 0;
+  left: 0;
+}
+
+/* Camada acima das partículas */
+.container {
+  position: relative;
+  z-index: 1;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.glow-text {
+  font-size: 3rem;
+  text-shadow: 0 0 20px #00f0ff, 0 0 40px #00e0ff, 0 0 60px #00d0ff;
+  animation: glow 2s infinite alternate;
+  text-decoration: none; /* Garante que o título não tenha sublinhado */
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  opacity: 0.7;
+  margin-top: 1rem;
+}
+
+/* Animações */
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px #00f0ff;
+  }
+  to {
+    text-shadow: 0 0 30px #00e0ff, 0 0 50px #00d0ff;
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 1.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s ease-out;
+}
+
+.scroll-animate.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(0, 255, 255, 0.4); }
+  70% { box-shadow: 0 0 0 20px rgba(0, 255, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 255, 255, 0); }
+}
+
+/* Cards */
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.4s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.hover-effect:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 0 30px #00eaff;
+}
+
+/* Botões */
+.btn {
+  padding: 0.8rem 1.5rem;
+  background: linear-gradient(45deg, #00f0ff, #007bff);
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 2rem;
+  cursor: pointer;
+  box-shadow: 0 0 10px #00eaff;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px #00f0ff;
+}
+
+/* Progressive Disclosure */
+.hidden-content {
+  display: none;
+  margin-top: 1rem;
+  font-style: italic;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  margin-top: 3rem;
+  opacity: 0.6;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .glow-text {
+    font-size: 2rem;
+  }
+
+  .content {
+    gap: 1.5rem;
+  }
+
+  .card {
+    padding: 1rem;
+  }
+}
+
+/* Galeria */
+.gallery {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.gallery-images {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.gallery-image {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.gallery-image:hover {
+  transform: scale(1.1);
+}
+
+/* Slideshow */
+.slideshow-container {
+  position: relative;
+  max-width: 100%;
+  margin-top: 2rem;
+}
+
+.slide {
+  display: none;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  padding: 16px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  transition: 0.3s ease;
+}
+
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
